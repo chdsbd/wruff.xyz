@@ -12,6 +12,7 @@ Send all the messages! :smiling_imp:
 - ```mg_apiKey```
 - ```mg_publicAPIKey```
 - ```yo_apiKey```
+- ```yo_username```
 - ```twitter_ConsumerKey```
 - ```twitter_ConsumerSecret```
 - ```twitter_AccessToken```
@@ -32,9 +33,9 @@ Frontend
 - [Font Awesome](http://fontawesome.io/)
 
 APIs
-- [Mailgun]()
-- [Twilio]()
-- [Yo]()
-- [Twitter]()
+- [Mailgun](https://documentation.mailgun.com/api_reference.html)
+- [Twilio](https://www.twilio.com/docs)
+- [Yo](https://dev.justyo.co)
+- [Twitter](https://dev.twitter.com/rest/public)
 
 
