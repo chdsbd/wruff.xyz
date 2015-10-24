@@ -15,14 +15,18 @@ type Message struct {
 	data  string
 }
 
-var templates = template.Must(template.ParseFiles("index.html", "404.html"))
+var templates = template.Must(template.ParseFiles("index.html", "404.html", "contact.html"))
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
-	renderPage(w, "index.html", Message{Title: "index"})
+	renderPage(w, "index.html", Message{Title: "Main"})
 }
 
 func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
 	renderPage(w, "404.html", Message{})
+}
+
+func ContactHandler(w http.ResponseWriter, r *http.Request) {
+	renderPage(w, "contact.html", Message{})
 }
 
 func main() {
@@ -31,6 +35,7 @@ func main() {
 	//serve static files inside the public folder ( make sure to prefix)
 	r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("public/"))))
 	r.HandleFunc("/", IndexHandler)
+	r.HandleFunc("/contact", ContactHandler)
 	n := negroni.Classic()
 	n.UseHandler(r)
 	graceful.Run(":8000", 10*time.Second, n)

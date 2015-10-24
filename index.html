@@ -7,13 +7,97 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/public/css/overrides.css">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script async="true" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <title>{{.Title}}</title>
 </head>
 
 <body>
-    {{.Title}}
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Wruff</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="https://github.com/chdsbd/wruff.xyz">Github</a></li>
+                </ul>
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </nav>
+    <article class="container padding-top">
+        <h1>{{.Title}}</h1>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Input</th>
+                        <th>Enable/ Disable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            <input>
+                        </td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Voice</td>
+                        <td>
+                            <input>
+                        </td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SMS</td>
+                        <td>
+                            <input>
+                        </td>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Yo</td>
+                        <td>
+                            <input>
+                        </td>
+
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tweet</td>
+                        <td>
+                            <input>
+                        </td>
+
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </article>
 </body>
 
 </html>
