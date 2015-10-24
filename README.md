@@ -4,10 +4,16 @@ Send all the messages! :smiling_imp:
 
 # Setup
 
-enviornmental variables
-
-`yo_apikey`
-
-`mg_apiKey`
-
-`mg_publicApiKey`
+### Enviornmental variables
+- ```Twilio_AccoutSid```
+- ```Twilio_AuthToken```
+- ```Twilio_Number```
+- ```Twilio_TestPhone```
+- ```mg_apiKey```
+- ```mg_publicAPIKey```
+- ```yo_apiKey```
+- ```twitter_ConsumerKey```
+- ```twitter_ConsumerSecret```
+- ```twitter_AccessToken```
+- ```twitter_AcessTokenSecret```
+- ```twitter_TestUsername```
