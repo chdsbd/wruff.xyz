@@ -1,103 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/public/css/overrides.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script async="true" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <title>{{.Title}}</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/public/css/overrides.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script async="true" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <title>WRUFF.XYZ</title>
+    </head>
 
-<body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Wruff</a>
+    <body>
+        <article class="container">
+            <div class="page-header">
+                <h1>WRUFF.XYZ
+                    <small>Send all the messages!</small>
+                </h1>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li><a href="https://github.com/chdsbd/wruff.xyz">Github</a></li>
-                </ul>
+            <div class="container">
+                <form>
+                    <div class="form-group">
+                        <label for="InputEmail">Email</label>
+                        <input type="email" class="form-control" id="InputEmail" placeholder="wruff@wruff.xyz">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputPhoneNumber">Phone (SMS & Voice)</label>
+                        <input type="tel" class="form-control" id="InputPhoneNumber" placeholder="123-456-7890">
+                    </div>
+                        <label for="basic-addon1">Twitter</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" id="InputTwitterHandle" placeholder="WRUFFWRUFF" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputYoUsername">Yo</label>
+                        <input type="text" class="form-control" id="InputYoUsername" placeholder="WRUFF">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
             </div>
-            <!--/.navbar-collapse -->
-        </div>
-    </nav>
-    <article class="container padding-top">
-        <h1>{{.Title}}</h1>
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Service</th>
-                        <th>Input</th>
-                        <th>Enable/ Disable</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Email</td>
-                        <td>
-                            <input>
-                        </td>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Voice</td>
-                        <td>
-                            <input>
-                        </td>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SMS</td>
-                        <td>
-                            <input>
-                        </td>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Yo</td>
-                        <td>
-                            <input>
-                        </td>
-
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Tweet</td>
-                        <td>
-                            <input>
-                        </td>
-
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </article>
-</body>
+        </article>
+    </body>
 
 </html>
