@@ -17,3 +17,24 @@ Send all the messages! :smiling_imp:
 - ```twitter_AccessToken```
 - ```twitter_AcessTokenSecret```
 - ```twitter_TestUsername```
+
+
+
+### Using
+
+Webserver
+- [gorrilla mux](https://github.com/gorilla/mux)
+- [negroni](https://github.com/codegangsta/negroni)
+- [graceful.v1](https://github.com/tylerb/graceful)
+
+Frontend
+- [Bootstrap](http://getbootstrap.com/)
+- [Font Awesome](http://fontawesome.io/)
+
+APIs
+- [Mailgun]()
+- [Twilio]()
+- [Yo]()
+- [Twitter]()
+
+

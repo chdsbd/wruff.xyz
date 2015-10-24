@@ -1,3 +1,31 @@
-.padding-top {
-    margin-top: 4rem;
+.bangers-font {
+    font-family: 'Bangers', cursive;
+}
+
+.brown {
+    color: #835C3B;
+}
+
+.red {
+    color: #d54d40;
+}
+
+.green {
+    color: #4eda66;
+}
+
+.blue {
+    color: #55ACEE;
+}
+
+.purple {
+    color: #813A9D;
+}
+
+.btn {
+    font-size: 2.5rem;
+}
+
+.upper-margin {
+    margin-top: 1.5rem;
 }
