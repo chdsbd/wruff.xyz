@@ -1,27 +1,13 @@
 # wruff.xyz [![Build Status](https://travis-ci.org/chdsbd/wruff.xyz.svg?branch=master)](https://travis-ci.org/chdsbd/wruff.xyz)
 Send all the messages! :smiling_imp:
 
+## What is this?
 
-# Setup
+This is a project for [hackumass](http://hackumass.com).
 
-### Enviornmental variables
-- ```Twilio_AccoutSid```
-- ```Twilio_AuthToken```
-- ```Twilio_Number```
-- ```Twilio_TestPhone```
-- ```mg_apiKey```
-- ```mg_publicAPIKey```
-- ```yo_apikey```
-- ```yo_username```
-- ```twitter_ConsumerKey```
-- ```twitter_ConsumerSecret```
-- ```twitter_AccessToken```
-- ```twitter_AcessTokenSecret```
-- ```twitter_TestUsername```
+*Note:* The website is not enabled for obvious reasons.
 
-
-
-### Using
+## Using
 
 Webserver
 - [gorrilla mux](https://github.com/gorilla/mux)
@@ -39,3 +25,27 @@ APIs
 - [Twitter](https://dev.twitter.com/rest/public)
 
 
+## Installation & Setup
+
+```bash
+git clone https://github.com/chdsbd/wruff.xyz
+```
+```bash
+go run main.go
+```
+
+Setup all the Enviornmental variables
+
+- ```Twilio_AccoutSid```
+- ```Twilio_AuthToken```
+- ```Twilio_Number```
+- ```Twilio_TestPhone```
+- ```mg_apiKey```
+- ```mg_publicAPIKey```
+- ```yo_apikey```
+- ```yo_username```
+- ```twitter_ConsumerKey```
+- ```twitter_ConsumerSecret```
+- ```twitter_AccessToken```
+- ```twitter_AcessTokenSecret```
+- ```twitter_TestUsername```
