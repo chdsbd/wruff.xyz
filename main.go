@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"text/template"
 	"time"
 
 	"github.com/chdsbd/wruff.xyz/apis"
@@ -13,13 +12,6 @@ import (
 	"github.com/gorilla/mux"
 	"gopkg.in/tylerb/graceful.v1"
 )
-
-type Message struct {
-	Title string
-	data  string
-}
-
-var templates = template.Must(template.ParseFiles("index.html", "404.html"))
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	message := fmt.Sprintf("Wruff Wruff! %s", time.Now())
@@ -72,11 +64,11 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		log.Println("SUCCESS!")
 	}
-	renderPage(w, "index.html", Message{})
+	http.ServeFile(w, r, "index.html")
 }
 
 func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
-	renderPage(w, "404.html", Message{})
+	http.ServeFile(w, r, "404.html")
 }
 
 func main() {
@@ -92,13 +84,6 @@ func main() {
 	n := negroni.Classic()
 	n.UseHandler(r)
 	graceful.Run(":8000", 10*time.Second, n)
-}
-
-func renderPage(w http.ResponseWriter, templateName string, data interface{}) {
-	err := templates.ExecuteTemplate(w, templateName, data)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
 }
 
 func checkEnv() error {
@@ -122,5 +107,4 @@ func checkEnv() error {
 		}
 	}
 	return nil
-
 }
