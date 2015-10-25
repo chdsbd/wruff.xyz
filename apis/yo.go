@@ -8,7 +8,7 @@ import (
 )
 
 //https://github.com/sjkaliski/go-yo
-//Problems with package so I had to modify some stuff
+//Problems with package so I had to modify some stuff & took what I needed
 
 var YO_API = "http://api.justyo.co"
 
@@ -18,13 +18,13 @@ type Client struct {
 }
 
 // Creates a new Client.
-func NewClient(token string) *Client {
+func newClient(token string) *Client {
 	return &Client{
 		Token: token,
 	}
 }
 
-func (c *Client) YoUser(username string) error {
+func (c *Client) yoUser(username string) error {
 	data := url.Values{}
 	data.Set("api_token", c.Token)
 	data.Set("username", username)
@@ -43,8 +43,8 @@ func (c *Client) YoUser(username string) error {
 }
 
 func SendYo(username string) error {
-	client := NewClient(os.Getenv("yo_apikey"))
-	err := client.YoUser(username)
+	client := newClient(os.Getenv("yo_apikey"))
+	err := client.yoUser(username)
 	if err != nil {
 		return err
 	}

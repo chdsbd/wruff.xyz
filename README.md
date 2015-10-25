@@ -11,7 +11,7 @@ Send all the messages! :smiling_imp:
 - ```Twilio_TestPhone```
 - ```mg_apiKey```
 - ```mg_publicAPIKey```
-- ```yo_apiKey```
+- ```yo_apikey```
 - ```yo_username```
 - ```twitter_ConsumerKey```
 - ```twitter_ConsumerSecret```
