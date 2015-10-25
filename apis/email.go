@@ -12,7 +12,7 @@ func SendEmail(email, message string) error {
 	mg := mailgun.NewMailgun("wruff.xyz", apiKey, publicAPIKey)
 	m := mg.NewMessage(
 		"Wruff Wruff <grr@wruff.xyz>",
-		"Hello",
+		"You have been WRUFF'd!",
 		message,
 		email,
 	)

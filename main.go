@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"text/template"
@@ -17,47 +18,58 @@ type Message struct {
 	data  string
 }
 
-var message string = "Wruff Wruff!"
-
 var templates = template.Must(template.ParseFiles("index.html", "404.html"))
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
+	message := fmt.Sprintf("Wruff Wruff! %s", time.Now())
 	var err error
 	if r.Method == "POST" {
 		if email := r.FormValue("InputEmail"); email != "" {
-			err = apis.SendEmail(email, message)
-			if err != nil {
-				log.Println(err)
-				http.Error(w, err.Error(), http.StatusInternalServerError)
-			}
+			go func() {
+				err = apis.SendEmail(email, message)
+				if err != nil {
+					log.Println("Email", err)
+				}
+			}()
+		} else {
+			log.Println("Email Missing")
 		}
 		if phoneNumber := r.FormValue("InputPhoneNumber"); phoneNumber != "" {
-			err = apis.SendSMS(phoneNumber, message)
-			if err != nil {
-				log.Println(err)
-				http.Error(w, err.Error(), http.StatusInternalServerError)
-			}
-			err = apis.SendCall(phoneNumber)
-			if err != nil {
-				log.Println(err)
-				http.Error(w, err.Error(), http.StatusInternalServerError)
-			}
+			go func() {
+				err = apis.SendSMS(phoneNumber, message)
+				if err != nil {
+					log.Println("SMS", err)
+				}
+			}()
+			go func() {
+				err = apis.SendCall(phoneNumber)
+				if err != nil {
+					log.Println("Voice", err)
+				}
+			}()
+
+		} else {
+			log.Println("Phone Number Missing")
 		}
 		if twitterHandle := r.FormValue("InputTwitterHandle"); twitterHandle != "" {
-			err = apis.SendTweet(twitterHandle, message)
-			if err != nil {
-				log.Println(err)
-				http.Error(w, err.Error(), http.StatusInternalServerError)
-			}
+			go func() {
+				err = apis.SendTweet(twitterHandle, message)
+				if err != nil {
+					log.Println(err)
+				}
+			}()
 		}
 		if yoUsername := r.FormValue("InputYoUsername"); yoUsername != "" {
-			err = apis.SendYo(yoUsername)
-			if err != nil {
-				log.Println(err)
-				http.Error(w, err.Error(), http.StatusInternalServerError)
-			}
+			go func() {
+				err = apis.SendYo(yoUsername)
+				if err != nil {
+					log.Println("Yo", err)
+				}
+			}()
+		} else {
+			log.Println("Yo Username Missing")
 		}
-
+		log.Println("SUCCESS!")
 	}
 	renderPage(w, "index.html", Message{})
 }
