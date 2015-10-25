@@ -1,14 +1,17 @@
 package main
 
 import (
+	"errors"
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"text/template"
 	"time"
 
-	"github.com/chdsbd/wruff.xyz/apis"
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
+	"github.com/sbdchd/wruff.xyz/apis"
 	"gopkg.in/tylerb/graceful.v1"
 )
 
@@ -67,6 +70,10 @@ func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	err := checkEnv()
+	if err != nil {
+		log.Fatal(err)
+	}
 	r := mux.NewRouter()
 	r.NotFoundHandler = http.HandlerFunc(NotFoundHandler)
 	//serve static files inside the public folder ( make sure to prefix)
@@ -82,4 +89,33 @@ func renderPage(w http.ResponseWriter, templateName string, data interface{}) {
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
+}
+
+func checkEnv() error {
+	env := []string{"mg_apiKey",
+		"mg_publicApiKey",
+		"yo_apikey",
+		"Twilio_AccoutSid",
+		"Twilio_AuthToken",
+		"Twilio_Number",
+		"Twilio_TestPhone",
+		"reddit_user",
+		"reddit_password",
+		"reddit_clientid",
+		"reddit_secret",
+		"twitter_ConsumerKey",
+		"twitter_ConsumerSecret",
+		"twitter_AccessToken",
+		"twitter_AcessTokenSecret",
+		"twitter_TestUsername",
+		"yo_username",
+	}
+	for _, v := range env {
+		if i := os.Getenv(v); i == "" {
+			return errors.New(fmt.Sprintf("env %s not set", v))
+			break
+		}
+	}
+	return nil
+
 }
