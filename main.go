@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"log"
 	"net/http"
@@ -119,8 +118,7 @@ func checkEnv() error {
 	}
 	for _, v := range env {
 		if i := os.Getenv(v); i == "" {
-			return errors.New(fmt.Sprintf("env %s not set", v))
-			break
+			return fmt.Errorf("env %s not set", v)
 		}
 	}
 	return nil
